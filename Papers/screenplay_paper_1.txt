@@ -1,0 +1,64 @@
+###################################
+ ____          _           
+|  _ \ ___  __| | ___  ___ 
+| |_) / _ \/ _` |/ _ \/ __|
+|  _ <  __/ (_| |  __/\__ \
+|_| \_\___|\__,_|\___||___/
+                           
+                                        _           
+ _ __   ___ _   _ _ __ ___  _ __   __ _| | ___  ___ 
+| '_ \ / _ \ | | | '__/ _ \| '_ \ / _` | |/ _ \/ __|
+| | | |  __/ |_| | | | (_) | | | | (_| | |  __/\__ \
+|_| |_|\___|\__,_|_|  \___/|_| |_|\__,_|_|\___||___/
+
+###################################
+
+Se le denomina «redes neuronales» a aquella técnica de procesamiento de información tipicamente usada en el maching learning y en la inteligencia artificial que usando el teorema de Bayes² emula la forma en la que funcionan las conexiones del cerebro humano, entendiendo el axón³ del cerebro como parte de las entradas que las denominadas «capas» reciben, siendo las «capas» de la red neuronal, el equivalente a la neurona³ funcional sobre entendiendo esta como la unidad fundamental de la red neuronal.
+
+Tipos de redes neuronales
+
+Las redes neuronales pueden catalogarse en 3 tipos principales que corresponden a:
+
+Redes neuronales de backpropagation: Son aquellas que realizan ajustes a una serie de parametros para ajustarse a ciertas medidas que se les imponen mediante el uso de la denominada propagación hacia atras o "backpropagation" lo que ayuda a la red a ajustar los parametros que se le dan para poder llegar a resultados optimos, un ejemplo de esto puede ser tener una red que calcula la probabilidad de que una fruta sea comprada o no en un mercado, este ejemplo se vería de la siguiente manera para nuestra red:
+
+[imagen]
+
+Donde cada parte de esta cadena de producción es una capa de la red, siendo que cada cada desempeña una función que me retorna una probabilidad, vemos la propagación hacia atras cuando la red regresa sobre las capas para analizar el porque no se ha comprado esta fruta.
+
+Redes neuronales convolucionales
+[Buscar]
+
+Redes neuronales recurrente
+[buscar]
+
+################################
+ _                _                 _ _  __                 
+| |    ___   __ _(_) ___ __ _    __| (_)/ _|_   _ _ __ __ _ 
+| |   / _ \ / _` | |/ __/ _` |  / _` | | |_| | | | '__/ _` |
+| |__| (_) | (_| | | (_| (_| | | (_| | |  _| |_| | | | (_| |
+|_____\___/ \__, |_|\___\__,_|  \__,_|_|_|  \__,_|_|  \__,_|
+            |___/                                           
+
+############################
+
+Entiendase la logica difusa o "Fuzzy logic" como el aporte del cientico Lotfi A. Zadeh al campo de las ciencias del software, esta forma de logica plantea un modelo logico para el cual las respuesta a las funciones de entrada (Los problemas que se analizan), no son 0 o 1, es decir; no son valors exactos sino rangos, lo cual posibilita un analisis más realista de los problemas que se atañen con este tipo de analisis, ya que esta tecnica reescribe las reglas de la logica para generar una visión basada en una "escala de verdad" o entendiendolo desde el punto de vista tecnico, una escala de valores que se encirran en rangos, lo que nos permite dar un rango de verdad a una premisa dejando de lado los problemas comunes de la logia común. Este tipo de logica provee al usuario de la misma un acercamiento estadistico "realista" a los problemas que sean modelados mediante la misma dejando margen para resolver preguntas de indoles tan diversas como "¿Qué tan feliz me voy a sentir esta semana?" o "¿Cual será la propina de un camarero por 1 servicio?", cosas que con la logica común cambiarían por "¿Estaré feliz esta semana?" o "¿Ese camarero tendrá propina?" Lo cual desde el punto de vista semantico es un cambio considerable pues las preguntas que responde la logica difusa corresponden a datos duros, como el porcentaje de felicidad o el valor de la propina del camarero, que a diferencia de las preguntas que responde la logica común (si o no) son rangos, valores o porcentajes.
+
+Logica difusa en la inteligencia artificial
+
+Como hemos establecido esta herramienta que hace más borrosa la linea entre lo que es cierto y lo que no, nos ayuda a establecer respuestas un poco más complejas que un "si" o un "no", esto es de gran ayuda para el devenir de la inteligrancia artificial; esta ayuda que nos proporciona en cosas como las redes neuronales se conoce como "funciones de activación" las cuales permiten realizar modificaciones en las funciones que atacan los diversos campos de busqueda del problema actual de la red X esto se ve de la siguiente manera
+
+Campo de busqueda sin función de activación
+
+[Imagen]
+
+Campo de busqueda con función de activación
+
+[Imagen]
+
+Como podemos ver en el modelo anterio la función de activación "curva" la recta que corresponde a la función que nos entre la red neuronal, esta curva acerca nuestra red a la solución que buscamos, esta curva es lo que hace posible que las redes neuranoles identifiquen cosas, ya sea fotos de gatitos, numeros, comportamientos o emociones
+
+Aplicación compleja de los patrones creados gracias a logica difusa en redes neuranoles
+
+[Imagen]
+
+
