@@ -2,6 +2,7 @@
 from os import path as os_path
 from random import choice
 from io import BytesIO
+import sys
 import os
 # Request
 from requests import get
@@ -120,6 +121,6 @@ def download_res(urls:str, path:str, silence=True):
 if __name__ == '__main__':
     # Generamos un scrapper
     scrapper = create_scrapper(Firefox)
-    res_urls = fetch_query('conejitos bebes', 10, scrapper)
+    res_urls = fetch_query('conejitos lindos', 10, scrapper)
     download_res(res_urls, os.environ['HOME'] + '/Escritorio/Scrapper')
 
