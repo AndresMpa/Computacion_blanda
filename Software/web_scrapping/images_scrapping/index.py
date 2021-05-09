@@ -1,7 +1,8 @@
 # Basic
+from os import path as os_path
 from random import choice
 from io import BytesIO
-from os import path as os_path
+import os
 # Request
 from requests import get
 # Pillow
@@ -49,7 +50,7 @@ def get_urls(images, scrapper):
 
     return images_urls
 
-def fetch_query(query:str, number_of_images:int, query_scrapper):
+def fetch_query(query:str, number_of_images:int, query_scrapper, silence=True):
     # Definimos un proveedor de imagenes
     google_images = "https://www.google.com/search?safe=off&site=&tbm=isch&source=hp&q={q}&oq={q}&gs_l=img"
     query_scrapper.get(google_images.format(q=query))
@@ -65,7 +66,8 @@ def fetch_query(query:str, number_of_images:int, query_scrapper):
     urls = get_urls(res, query_scrapper)
 
     # Mostramos la cantidad de imagenes
-    print("Se han encontractrado", len(urls), " imagenes que coinciden con tu patrón de busqueda, tomaremos solo ", number_of_images ,end='\n')
+    if silence == False:
+        print("Se han encontractrado", len(urls), " imagenes que coinciden con tu patrón de busqueda, tomaremos solo ", number_of_images ,end='\n')
 
     # De los links sacamos solo la cantidad requerida
     images = []
@@ -76,15 +78,25 @@ def fetch_query(query:str, number_of_images:int, query_scrapper):
 
     return images
 
-def download_res(urls:str, path:str):
+def check_path(path):
+    # En caso de no existir la carpeta esta se crea
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+def download_res(urls:str, path:str, silence=True):
+    # Verificamos que exista la carpeta
+    check_path(path)
     cont = 0
+
+    # Descargamos la imagenes del array
     for url in urls:
         try:
             # Se optiene la imagen
             img_content = get(url).content
         except Exception as e:
-            print('No fue posible descargar la imagen ', str(url) + ' ', end='')
-            print(e)
+            if silence == False:
+                print('No fue posible descargar la imagen ', str(url) + ' ', end='')
+                print(e)
 
         try:
             # Se genera el archivo de la imagen
@@ -97,15 +109,17 @@ def download_res(urls:str, path:str):
                 image.save(f, "JPEG", quality=85)
 
             # Se confirma que se guardo la imagen
-            print('Guardado exitosamente -' + str(url) + '- en ' + file_path)
+            if silence == False:
+                print('Guardado exitosamente -' + str(url) + '- en ' + file_path)
         except Exception as e:
-            print('ERROR - no se pudo guardar la imagen ' + str(url))
-            print(e)
+            if silence == False:
+                print('ERROR - no se pudo guardar la imagen ' + str(url))
+                print(e)
         cont += 1
 
 if __name__ == '__main__':
     # Generamos un scrapper
     scrapper = create_scrapper(Firefox)
-    res_urls = fetch_query('conejitos lindos', 10, scrapper)
-    download_res(res_urls, '/home/andresmp/Escritorio/Scrapper')
+    res_urls = fetch_query('conejitos bebes', 10, scrapper)
+    download_res(res_urls, os.environ['HOME'] + '/Escritorio/Scrapper')
 
