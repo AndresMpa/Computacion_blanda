@@ -120,6 +120,7 @@ def download_res(urls:str, path:str, silence=True):
 
 if __name__ == '__main__':
     # Generamos un scrapper
+    print(ar[1])
     scrapper = create_scrapper(Firefox)
     res_urls = fetch_query(ar[1], 10, scrapper)
     download_res(res_urls, os.environ['HOME'] + '/Escritorio/Scrapper')

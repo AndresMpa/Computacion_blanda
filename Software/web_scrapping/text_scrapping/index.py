@@ -2,6 +2,8 @@
 Para este caso usaremos "selenium" para nuestro scrapper, de selenium tomammos lo
 siguiente:
 
+ - argv: Sirve para dar al software la capacidad de tomar datos desde la terminal
+
  - webdriver: Basicamente nos permitira usar un navegador en concreto para nuestro
  scrapper. Para escoger el respectivo driver según el navergador es necesario
  visitar el link (Sacado de la documentacion de Selenium):
@@ -27,6 +29,7 @@ siguiente:
  componente
 '''
 
+from sys import argv as ar
 from selenium.webdriver import Firefox
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -72,17 +75,18 @@ en Selenium, es decir:
 $ echo $PATH
 
 De la que usamos: "./scrapper/bin/geckodriver"; puedes buscar más información en:
-https://www.selenium.dev/documentation/en/webdriver/driver_requirements/
+https://www.selenium.dev/documentation/en/webdriver/driver_requirements/ de todos
+modos usaremos la variable para no presentar problemas
 
 '''
 
 # Version de desarollo
-
-# web_scrapper = Firefox()
+# path = './scrapper/bin/geckodriver'
+# web_scrapper = Firefox(executable_path=path)
 
 # Version de producción
-
-web_scrapper = Firefox(options=options)
+path = './scrapper/bin/geckodriver'
+web_scrapper = Firefox(executable_path=path, options=options)
 
 '''
 Ahora que tenemos una instancia del navegador, hemos de enviar un dominio para
@@ -107,7 +111,7 @@ ejemplo usaremos la palabra "gatitos", luego al mismo parametro le daremos la
 instrucción Keys.RETURN para  ejecutar la busqueda (Basicamente seria como dar enter)
 '''
 
-query.send_keys('JS')
+query.send_keys(ar[1])
 query.send_keys(Keys.RETURN)
 
 '''
