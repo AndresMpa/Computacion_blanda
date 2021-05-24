@@ -25,11 +25,11 @@ def create_scrapper(driver):
     options.add_argument('--proxy-server=%s' % PROXY)
 
     # Ruta del driver
-    # path = './scraper/bin/geckodriver'
+    path = './scraper/bin/geckodriver'
 
     # Instancia del navigador
-    # new_scrapper = driver(executable_path=path, options=options) # Implementacion alterna
-    new_scrapper = driver(options=options)
+    new_scrapper = driver(executable_path=path, options=options)
+    # new_scrapper = driver(options=options) # Implementacion alterna usando path
 
     return new_scrapper
 
@@ -124,9 +124,11 @@ def download_res(urls:str, path:str, silence=True):
 
 if __name__ == '__main__':
     # Generamos un scrapper
-    print(ar[1])
+    query = "Baby cats"
+    if len(ar) > 1:
+        query = ar[1]
     scrapper = create_scrapper(Firefox)
-    res_urls = fetch_query(ar[1], 10, scrapper)
+    res_urls = fetch_query(query, 10, scrapper)
     download_res(res_urls, os.environ['HOME'] + '/Escritorio/Scrapper')
     scrapper.quit()
 
