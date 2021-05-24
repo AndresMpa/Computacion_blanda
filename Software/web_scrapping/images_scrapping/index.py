@@ -24,7 +24,11 @@ def create_scrapper(driver):
     PROXY = '127.63.13.19:3184'
     options.add_argument('--proxy-server=%s' % PROXY)
 
+    # Ruta del driver
+    path = './scraper/bin/geckodriver'
+
     # Instancia del navigador
+    new_scrapper = driver(executable_path=path, options=options)
     new_scrapper = driver(options=options)
 
     return new_scrapper

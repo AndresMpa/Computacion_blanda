@@ -85,7 +85,7 @@ modos usaremos la variable para no presentar problemas
 # web_scrapper = Firefox(executable_path=path)
 
 # Version de producción
-path = './scrapper/bin/geckodriver'
+path = './scraper/bin/geckodriver'
 web_scrapper = Firefox(executable_path=path, options=options)
 
 '''
