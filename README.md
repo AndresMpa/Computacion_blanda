@@ -6,6 +6,6 @@ Este respositorio contiene paper, desarrollo y demás tematicas relacionadas con
 
 | Tematicas                                        |
 | ------------------------------------------------ |
-| [Papers & documentación](./Papers)               |
-| [Desarrollo](./Software)                         |
+| [Papers & documentación](./papers)               |
+| [Desarrollo](./software)                         |
 | [Documentación para papers y desarrollo](./.doc) |
