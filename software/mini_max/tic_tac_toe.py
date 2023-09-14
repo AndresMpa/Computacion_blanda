@@ -1,9 +1,25 @@
-
 def print_board(board):
     # Esta función imprime el tablero en la consola
     for row in board:
         print(" | ".join(row))
         print("-" * 9)
+
+
+def game_over(board):
+    # Verificar filas, columnas y diagonales
+    for i in range(3):
+        if board[i][0] == board[i][1] == board[i][2] != ' ':
+            return True
+        if board[0][i] == board[1][i] == board[2][i] != ' ':
+            return True
+    if board[0][0] == board[1][1] == board[2][2] != ' ':
+        return True
+    if board[0][2] == board[1][1] == board[2][0] != ' ':
+        return True
+    # Si no hay ganador pero el tablero está lleno, es un empate
+    if all(board[i][j] != ' ' for i in range(3) for j in range(3)):
+        return True
+    return False
 
 
 def check_winner(board, player):
@@ -79,42 +95,3 @@ def find_best_move(board):
                     best_eval = eval
                     best_move = (row, col)
     return best_move
-
-
-if __name__ == "__main__":
-    board = [[' ' for _ in range(3)] for _ in range(3)]
-
-    print("¡Bienvenido al juego de tres en raya!")
-    print_board(board)
-
-    while True:
-        player_row, player_col = map(int, input(
-            "Ingresa la fila y columna (ejemplo: 0 1): ").split())
-
-        if board[player_row][player_col] == ' ':
-            board[player_row][player_col] = 'O'
-            print_board(board)
-
-            if check_winner(board, 'O'):
-                print("¡Has ganado!")
-                break
-
-            if is_full(board):
-                print("¡Es un empate!")
-                break
-
-            computer_row, computer_col = find_best_move(board)
-            board[computer_row][computer_col] = 'X'
-            print("La computadora jugó en la fila",
-                  computer_row, "y columna", computer_col)
-            print_board(board)
-
-            if check_winner(board, 'X'):
-                print("¡La computadora ha ganado!")
-                break
-
-            if is_full(board):
-                print("¡Es un empate!")
-                break
-        else:
-            print("Esa casilla ya está ocupada. Intenta de nuevo.")
